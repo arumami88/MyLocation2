@@ -2,12 +2,8 @@ name: Home
 on: workflow_dispatch
 
 jobs:
-  job:
+  Home:
     name: Home
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v3
-      - echo "Hello, World!"
-      - uses: stefanzweifel/git-auto-action@v4
+      - run: echo "Hello, World!"
