@@ -1,0 +1,9 @@
+name: Home
+on: workflow_dispatch
+
+jobs:
+  home:
+    name: Home
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, World!"
