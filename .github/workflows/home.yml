@@ -1,0 +1,10 @@
+name: Home
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  home:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "My Location is Home."
