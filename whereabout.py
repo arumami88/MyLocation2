@@ -13,18 +13,17 @@ if __name__ == '__main__':
 	driver.get('file:///index.html')
 
 	device = evdev.InputDevice('/dev/input/event6')
-	
-    flag = 0
-    while True:
-        try:
-            for event in device.read_loop():
-                if event.type == evdev.ecodes.EV_KEY:
-                    if event.value == 0:
-                    	if event.code == evdev.ecodes.KEY_KP1:
-                    		driver.get('file:///home.html')
-                    	if event.code == evdev.ecodes.KEY_KP2:
-                    		driver.get('file:///labo.html')
-                        if event.code == evdev.ecodes.KEY_KP3:
-                    		driver.get('file:///meeting.html')
-        except KeyboardInterrupt:
-            break
+
+	while True:
+		try:
+			for event in device.read_loop():
+				if event.type == evdev.ecodes.EV_KEY:
+					if event.value == 0:
+						if event.code == evdev.ecodes.KEY_KP1:
+							driver.get('file:///home.html')
+						if event.code == evdev.ecodes.KEY_KP2:
+							driver.get('file:///labo.html')
+						if event.code == evdev.ecodes.KEY_KP3:
+							driver.get('file:///meeting.html')
+		except KeyboardInterrupt:
+			break
