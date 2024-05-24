@@ -11,7 +11,7 @@ if __name__ == '__main__':
 	options.binary_location = ('/usr/bin/chromium-browser')
 	service = Service('/usr/bin/chromedriver')
 	driver = webdriver.Chrome(options=options, service=service)
-	driver.get('file:///home/imamura/arumami88/MyLocation/index.html')
+	driver.get('file:///home/imamura/MyLocation/index.html')
 
 	device = evdev.InputDevice('/dev/input/event6')
 
@@ -27,24 +27,24 @@ if __name__ == '__main__':
 				if flag == 0 and event.type == evdev.ecodes.EV_KEY:
 					if event.value == 0:
 						if event.code == evdev.ecodes.KEY_KP7:  # 在室
-							driver.get('file:///home/imamura/arumami88/MyLocation/room.html')
+							driver.get('file:///home/imamura/MyLocation/room.html')
 						if event.code == evdev.ecodes.KEY_KP8:  # 講義
-							driver.get('file:///home/imamura/arumami88/MyLocation/lecture.html')
+							driver.get('file:///home/imamura/MyLocation/lecture.html')
 						if event.code == evdev.ecodes.KEY_KP9:  # 会議
-							driver.get('file:///home/imamura/arumami88/MyLocation/meeting.html')
+							driver.get('file:///home/imamura/MyLocation/meeting.html')
 						if event.code == evdev.ecodes.KEY_KP4:  # 研究室
-							driver.get('file:///home/imamura/arumami88/MyLocation/home.html')
+							driver.get('file:///home/imamura/MyLocation/home.html')
 						if event.code == evdev.ecodes.KEY_KP5:  # ゼミ室
-							driver.get('file:///home/imamura/arumami88/MyLocation/semi.html')
+							driver.get('file:///home/imamura/MyLocation/semi.html')
 						if event.code == evdev.ecodes.KEY_KP6:  # 食事
-							driver.get('file:///home/imamura/arumami88/MyLocation/meal.html')
+							driver.get('file:///home/imamura/MyLocation/meal.html')
 						if event.code == evdev.ecodes.KEY_KP1:  # 学内
-							driver.get('file:///home/imamura/arumami88/MyLocation/univ.html')
+							driver.get('file:///home/imamura/MyLocation/univ.html')
 						if event.code == evdev.ecodes.KEY_KP2:  # 出張
-							driver.get('file:///home/imamura/arumami88/MyLocation/trip.html')
+							driver.get('file:///home/imamura/MyLocation/trip.html')
 						if event.code == evdev.ecodes.KEY_KP3:  # 休暇
-							driver.get('file:///home/imamura/arumami88/MyLocation/vacation.html')
+							driver.get('file:///home/imamura/MyLocation/vacation.html')
 						if event.code == evdev.ecodes.KEY_KP0:  # 帰宅
-							driver.get('file:///home/imamura/arumami88/MyLocation/home.html')
+							driver.get('file:///home/imamura/MyLocation/home.html')
 		except KeyboardInterrupt:
 			break
