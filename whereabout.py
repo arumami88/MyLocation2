@@ -10,7 +10,7 @@ if __name__ == '__main__':
 	chrome_binary_location = '/usr/bin/chromium-browser'
 	chrome_webdriver_location = '/usr/bin/chromedriver'
 	input_device = '/dev/input/event6'
-	mylocation_path = 'file:///home/imamura/Mylocation/'
+	mylocation_path = 'file:///home/imamura/MyLocation/'
 	offmode_start = 10
 	offmode_end = 9
 	default_webpage = mylocation_path + 'home.html'  # default
