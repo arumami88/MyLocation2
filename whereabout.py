@@ -1,4 +1,3 @@
-import datetime
 import evdev
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -11,8 +10,6 @@ if __name__ == '__main__':
 	chrome_webdriver_location = '/usr/bin/chromedriver'
 	input_device = '/dev/input/event6'
 	mylocation_path = 'file:///home/imamura/MyLocation/'
-	offmode_start = 1055
-	offmode_end = 900
 	default_webpage = mylocation_path + 'home.html'  # default
 	offmode_webpage = mylocation_path + 'blank.html'  # blank
 	key7_webpage = mylocation_path + 'room.html'  # in room
@@ -38,60 +35,31 @@ if __name__ == '__main__':
 	# Setting of Input device
 	device = evdev.InputDevice(input_device)
 
-	offtime = 0  # 0: ON-mode, 1: OFF-mode
-	location = 0  # default
 	while True:
 		try:
 			for event in device.read_loop():
 				if event.type == evdev.ecodes.EV_KEY:
-					if event.value == 0:
-						if event.code == evdev.ecodes.KEY_KP0:
-							driver.get(key0_webpage)
-							location = 0
-						if event.code == evdev.ecodes.KEY_KP1:
-							driver.get(key1_webpage)
-							location = 1
-						if event.code == evdev.ecodes.KEY_KP2:
-							driver.get(key2_webpage)
-							location = 2
-						if event.code == evdev.ecodes.KEY_KP3:
-							driver.get(key3_webpage)
-							location = 3
-						if event.code == evdev.ecodes.KEY_KP4:
-							driver.get(key4_webpage)
-							location = 4
-						if event.code == evdev.ecodes.KEY_KP5:
-							driver.get(key5_webpage)
-							location = 5
-						if event.code == evdev.ecodes.KEY_KP6:
-							driver.get(key6_webpage)
-							location = 6
-						if event.code == evdev.ecodes.KEY_KP7:
-							driver.get(key7_webpage)
-							location = 7
-						if event.code == evdev.ecodes.KEY_KP8:
-							driver.get(key8_webpage)
-							location = 8
-						if event.code == evdev.ecodes.KEY_KP9:
-							driver.get(key9_webpage)
-							location = 9
-				else:
-					# Obtaining of time information
-					dt = datetime.datetime.now()
-					ctime = 100 * dt.hour + dt.minute
-					if offtime == 0 and (ctime <= offmode_end or ctime >= offmode_start):
-						offtime = 1
+					if event.code == evdev.ecodes.KEY_KP0:
+						driver.get(key0_webpage)
+					if event.code == evdev.ecodes.KEY_KP1:
+						driver.get(key1_webpage)
+					if event.code == evdev.ecodes.KEY_KP2:
+						driver.get(key2_webpage)
+					if event.code == evdev.ecodes.KEY_KP3:
+						driver.get(key3_webpage)
+					if event.code == evdev.ecodes.KEY_KP4:
+						driver.get(key4_webpage)
+					if event.code == evdev.ecodes.KEY_KP5:
+						driver.get(key5_webpage)
+					if event.code == evdev.ecodes.KEY_KP6:
+						driver.get(key6_webpage)
+					if event.code == evdev.ecodes.KEY_KP7:
+						driver.get(key7_webpage)
+					if event.code == evdev.ecodes.KEY_KP8:
+						driver.get(key8_webpage)
+					if event.code == evdev.ecodes.KEY_KP9:
+						driver.get(key9_webpage)
+					if event.code == evdev.ecodes.KEY_KPENTER:
 						driver.get(offmode_webpage)
-						print("OFF-mode", ctime)
-					if offtime == 1 and (offmode_end < ctime < offmode_start):
-						offtime = 0
-						print("ON-mode", ctime)
-						# === Costomize for keep location ===
-						if location == 2:
-							driver.get(key2_webpage)  # business trip
-						elif location == 3:
-							driver.get(key3_webpage)  # vacation
-						else:
-							driver.get(default_webpage)
 		except KeyboardInterrupt:
 			break
