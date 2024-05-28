@@ -11,8 +11,8 @@ if __name__ == '__main__':
 	chrome_webdriver_location = '/usr/bin/chromedriver'
 	input_device = '/dev/input/event6'
 	mylocation_path = 'file:///home/imamura/MyLocation/'
-	offmode_start = 23
-	offmode_end = 5
+	offmode_start = 910
+	offmode_end = 920
 	default_webpage = mylocation_path + 'home.html'  # default
 	offmode_webpage = mylocation_path + 'blank.html'  # blank
 	key7_webpage = mylocation_path + 'room.html'  # in room
@@ -45,11 +45,12 @@ if __name__ == '__main__':
 			for event in device.read_loop():
 				# Obtaining of time information
 				dt = datetime.datetime.now()
+				ctime = 100 * dt.hour + dt.minute
 				# Switching to OFF-mode by time
-				if offtime == 0 and (dt.hour <= offmode_end or dt.hour >= offmode_start):
+				if offtime == 0 and (ctime <= offmode_end or ctime >= offmode_start):
 					offtime = 1
 					driver.get(offmode_webpage)
-				if offtime == 1 and (offmode_end < dt.hour < offmode_start):
+				if offtime == 1 and (offmode_end < ctime < offmode_start):
 					offtime = 0
 					# === Costomize for keep location ===
 					if location == 2:
