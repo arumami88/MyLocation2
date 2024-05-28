@@ -11,7 +11,7 @@ if __name__ == '__main__':
 	chrome_webdriver_location = '/usr/bin/chromedriver'
 	input_device = '/dev/input/event6'
 	mylocation_path = 'file:///home/imamura/MyLocation/'
-	offmode_start = 935
+	offmode_start = 1010
 	offmode_end = 900
 	default_webpage = mylocation_path + 'home.html'  # default
 	offmode_webpage = mylocation_path + 'blank.html'  # blank
