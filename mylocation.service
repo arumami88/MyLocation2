@@ -1,0 +1,13 @@
+[Unit]
+Description=My Location
+
+[Service]
+ExecStart=/usr/bin/python3 /home/imamura/MyLocation/whereabout.py
+Restart=always
+RestartSec=3600
+
+[Timer]
+OnBootSec=2min
+
+[Install]
+WantedBy=multi-user.target
