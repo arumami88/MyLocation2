@@ -2,12 +2,10 @@
 Description=My Location
 
 [Service]
-ExecStart=/usr/bin/python3 /home/imamura/MyLocation/whereabout.py
-Restart=always
-RestartSec=3600
-
-[Timer]
-OnBootSec=2min
+User=imamura
+Environment="DISPLAY=:0.0"
+Environment="XAUTHORITY=/home/imamura/.Xauthority"
+ExecStart=/usr/bin/python /home/imamura/MyLocation/whereabout.py
 
 [Install]
 WantedBy=multi-user.target
