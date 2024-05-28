@@ -11,7 +11,7 @@ if __name__ == '__main__':
 	chrome_webdriver_location = '/usr/bin/chromedriver'
 	input_device = '/dev/input/event6'
 	mylocation_path = 'file:///home/imamura/MyLocation/'
-	offmode_start = 1015
+	offmode_start = 1055
 	offmode_end = 900
 	default_webpage = mylocation_path + 'home.html'  # default
 	offmode_webpage = mylocation_path + 'blank.html'  # blank
@@ -40,28 +40,8 @@ if __name__ == '__main__':
 
 	offtime = 0  # 0: ON-mode, 1: OFF-mode
 	location = 0  # default
-	dt = datetime.datetime.now()
-	ctime = 100 * dt.hour + dt.minute
-	print("ON-mode", ctime)
 	while True:
 		try:
-			# Obtaining of time information
-			dt = datetime.datetime.now()
-			ctime = 100 * dt.hour + dt.minute
-			if offtime == 0 and (ctime <= offmode_end or ctime >= offmode_start):
-				offtime = 1
-				driver.get(offmode_webpage)
-				print("OFF-mode", ctime)
-			if offtime == 1 and (offmode_end < ctime < offmode_start):
-				offtime = 0
-				print("ON-mode", ctime)
-				# === Costomize for keep location ===
-				if location == 2:
-					driver.get(key2_webpage)  # business trip
-				elif location == 3:
-					driver.get(key3_webpage)  # vacation
-				else:
-					driver.get(default_webpage)
 			for event in device.read_loop():
 				if event.type == evdev.ecodes.EV_KEY:
 					if event.value == 0:
@@ -95,5 +75,23 @@ if __name__ == '__main__':
 						if event.code == evdev.ecodes.KEY_KP9:
 							driver.get(key9_webpage)
 							location = 9
+				else:
+					# Obtaining of time information
+					dt = datetime.datetime.now()
+					ctime = 100 * dt.hour + dt.minute
+					if offtime == 0 and (ctime <= offmode_end or ctime >= offmode_start):
+						offtime = 1
+						driver.get(offmode_webpage)
+						print("OFF-mode", ctime)
+					if offtime == 1 and (offmode_end < ctime < offmode_start):
+						offtime = 0
+						print("ON-mode", ctime)
+						# === Costomize for keep location ===
+						if location == 2:
+							driver.get(key2_webpage)  # business trip
+						elif location == 3:
+							driver.get(key3_webpage)  # vacation
+						else:
+							driver.get(default_webpage)
 		except KeyboardInterrupt:
 			break
