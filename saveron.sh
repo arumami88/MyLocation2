@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 xset s on
 xset 60
