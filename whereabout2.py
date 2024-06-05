@@ -42,36 +42,36 @@ if __name__ == '__main__':
 				if event.type == evdev.ecodes.EV_KEY:
 					if event.code == evdev.ecodes.KEY_KP0:
 						driver.get(key0_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/home.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/home.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP1:
 						driver.get(key1_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/univ.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/univ.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP2:
 						driver.get(key2_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/trip.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/trip.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP3:
 						driver.get(key3_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/vacation.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/vacation.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP4:
 						driver.get(key4_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/labo.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/labo.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP5:
 						driver.get(key5_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/semi.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/semi.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP6:
 						driver.get(key6_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/meal.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/meal.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP7:
 						driver.get(key7_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/room.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/room.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP8:
 						driver.get(key8_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/lecture.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/lecture.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KP9:
 						driver.get(key9_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/meeting.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/meeting.html', ' ~/www/index.html'], shell=False)
 					if event.code == evdev.ecodes.KEY_KPENTER:
 						driver.get(offmode_webpage)
-						subprocess.call(['cp', ' /home/imamura/www/home.html', ' /home/imamura/www/index.html'], shell=False)
+						subprocess.call(['cp', ' ~/www/home.html', ' ~/www/index.html'], shell=False)
 		except KeyboardInterrupt:
 			break
