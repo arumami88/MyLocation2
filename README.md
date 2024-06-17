@@ -108,7 +108,7 @@ which chromedriver
 sudo apt-get dist-upgrade chromium-browser
 ```
 
-### 動作確認用のサンプルコード（KioskモードによるChrome起動と google ページの表示）[chrometest.py](chrometest.py)
+### 動作確認用のサンプルコード（Kioskモードでの google ページの表示）[chrometest.py](chrometest.py)
 ```
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -122,3 +122,12 @@ service = Service('/usr/bin/chromedriver')
 driver = webdriver.Chrome(options=options, service=service)
 driver.get('https://google.com')
 ```
+
+## 7. 数字キーの押下による所在変更の確認
+```
+cd ~/MyLocation
+python whereabout.py
+```
+- サンプルコード [whereabout.py](whereabout.py) を実行して数字キーの押下で表示変更されるか確認する。
+
+### サンプルコードの設定内容
