@@ -16,6 +16,8 @@
 | ディスプレイ | Dodomi 10.1インチモニタ（HDMI,1290×800）|
 
 
-## Raspberry Pi 3 のOSインストールと初期設定
+1. Raspberry Pi 3 のOSインストールと初期設定
 
-1. [公式ページ](https://www.raspberrypi.com/software/) から Raspberry Pi Imager をダウンロードしてPCにインストール。
+- [公式ページ](https://www.raspberrypi.com/software/) から **Raspberry Pi Imager** をダウンロードしてPCにインストール。
+
+- Raspberry Pi Imagerを起動して，MicroSD カードにOSを書き込む。**Raspberry Pi OS (Legacy, 32-bit)** を選択
