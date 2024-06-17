@@ -16,7 +16,7 @@
 | ディスプレイ | Dodomi 10.1インチモニタ（HDMI,1290×800）|
 
 
-## 1. Raspberry Pi 3 のOSインストールと初期設定
+## 1. Raspberry Pi のOSインストールと初期設定
 
 - [公式ページ](https://www.raspberrypi.com/software/) から **Raspberry Pi Imager** をダウンロードしてPCにインストール。
 - Raspberry Pi Imagerを起動して，MicroSD カードにOSを書き込む。**Raspberry Pi OS (Legacy, 32-bit)** を選択。
@@ -26,20 +26,22 @@
 
 - デスクトップ左上のラズパイのロゴをクリック
 - [設定]→[Raspberry Piの設定]→[ディスプレイ]タブ→[画面のブランク]をオフ
-- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[SSH]をオン
-- Raspberry Pi のIPアドレスを調べておく。
+- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[SSH]をオン[^1]
+- Raspberry Pi のIPアドレスを調べておく。[^1]
 ```
 ifconfig | grep inet
 ```
 - 再起動して有効化する。
 
-## 2. このリポジトリをクローン
+[^1]:SSHによるログインが必要な場合のみ。
+
+## 3. このリポジトリをクローン
 ```
 cd ~
 git clone https://github.com/arumami88/MyLocation
 ```
 
-## 3. Kuman 3.5インチLCDの設定
+## 4. Kuman 3.5インチLCDの設定
 
 - LDC-show をインストール（※goodtft版は動作せず）
 ```
@@ -58,7 +60,7 @@ cd ~/LCD-show
 ```
 ある程度の作業が完了するまで，大画面のHDMIディスプレイで作業する方が楽。
 
-## 4. 表示切替用キーの設定
+## 5. 表示切替用キーの設定
 
 - テンキーを接続して，デバイスの確認。
 ```
@@ -85,7 +87,7 @@ for event in device.read_loop():
 ```
 表示と関連付けるキーコード番号とコード名を確認しておく。
 
-## 5. Chromium の自動操作（Selenium）の設定
+## 6. Chromium の自動操作（Selenium）の設定
 
 - Selenium のインストール
 ```
