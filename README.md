@@ -29,10 +29,10 @@
 - LDC-show をインストール（※goodtft版は動作せず）
 
 ```
-    git clone https://github.com/waveshare/LCD-show.git
-    chmod -R 755 LCD-show
-    cd LCD-show
-    ./LCD35-show
+git clone https://github.com/waveshare/LCD-show.git
+chmod -R 755 LCD-show
+cd LCD-show
+./LCD35-show
 ```
 
 　実行すると自動的に再起動して3.5インチLCD表示に切り替わる。
