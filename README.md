@@ -25,8 +25,8 @@
 ## 2. 自動スリープを無効化・SSHの有効化
 
 - デスクトップ左上のラズパイのロゴをクリック
-- [設定]→[Raspberry Piの設定]→[ディスプレイ]タブ→[画面のブランク]をオフ
-- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[SSH]をオン[^1]
+- [設定]→[Raspberry Piの設定]→[ディスプレイ]タブ→[**画面のブランク**]をオフ
+- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[**SSH**]をオン[^1]
 - Raspberry Pi のIPアドレスを調べておく。[^1]
 ```
 ifconfig | grep inet
@@ -38,7 +38,7 @@ ifconfig | grep inet
 ## 3. このリポジトリをクローン
 ```
 cd ~
-git clone https://github.com/arumami88/MyLocation
+git clone https://github.com/arumami88/MyLocation.git
 ```
 
 ## 4. Kuman 3.5インチLCDの設定
@@ -75,7 +75,7 @@ ls /dev/input
 ```
 sudo pip3 install evdev
 ```
-### 動作確認用のサンプルコード（接続デバイスが /dev/input/event0 の例）[buttontest.py](buttontest.py)
+### 動作確認用のサンプルコード（接続デバイスが **/dev/input/event0** の例）[buttontest.py](buttontest.py)
 ```
 import evdev
 
