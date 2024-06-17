@@ -28,9 +28,37 @@
 
 - LDC-show をインストール（※goodtft版は動作せず）
 ```
-git clone https://github.com/waveshare/LCD-show.git
-chmod -R 755 LCD-show
-cd LCD-show
-./LCD35-show
+  cd ~
+  git clone https://github.com/waveshare/LCD-show.git
+  chmod -R 755 LCD-show
+  cd LCD-show
+  ./LCD35-show
 ```
-　実行すると自動的に再起動して3.5インチLCD表示に切り替わる。
+実行すると自動的に再起動して3.5インチLCD表示に切り替わる。
+
+- HDMI表示に戻すには下記コマンドを実行する。
+```
+  cd ~/LCD-show
+  ./LCD-hdmi
+```
+ある程度の作業が完了するまで，大画面のHDMIディスプレイで作業する方が楽。
+
+## 3. 表示切替用キーの設定
+
+- テンキーを接続して，デバイスの確認。
+```
+  cat /proc/bus/input/devices
+```
+下記のコマンドで接続前後の差分を確認してもよい。増えたものが接続デバイス。
+```
+  ls /dev/input
+```
+
+- evdev のインストールと動作確認
+```
+  sudo pip3 install evdev
+```
+### 動作確認用のサンプルコード（接続デバイスが /dev/input/event0 の例）
+```
+  import evdev
+```
