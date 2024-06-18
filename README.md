@@ -145,14 +145,14 @@ npm run start
 
 ## 7. MagicMirror<sup>2</sup>の設定 [~/MagicMirror/config/config.js](config.js)
 
-- 日本語の設定とログの無効化
+- 日本語の設定とログの無効化する。
 ```
 language: "ja"
 locale: "ja-JP.UTF-8"
 logLevel: []
 ```
 
-- 標準カレンダーモジュールを日本の休日に変更
+- 標準カレンダーモジュールを日本の休日に変更する。
 ```
 {
 module: "calendar",
@@ -172,7 +172,7 @@ module: "calendar",
 },
 ```
 
-- 誉め言葉モジュールの表示を無効化
+- 誉め言葉モジュールの表示を無効化する。
 ```
 {
     module: "compliments",
@@ -181,7 +181,7 @@ module: "calendar",
 },
 ```
 
-天気予報モジュールは金沢市に変更 [^2]
+- 天気予報モジュールは好きな地域に変更する。（例では金沢市） [^2]
 ```
 {
     module: "weather",
@@ -208,6 +208,27 @@ module: "calendar",
 },
 ```
 [^2]: APIキーは取得したものを記述してください。
+
+- ニュースフィードモジュールはNHK主要ニュースに変更する。
+```
+{
+    module: "newsfeed",
+    position: "top_bar",
+    config: {
+        feeds: [
+            {
+                title: "NHK News",
+                url: "https://www.nhk.or.jp/rss/news/cat0.xml"
+            }
+        ],
+        showSourceTitle: true,
+        showPublishDate: true,
+        broadcastNewsFeeds: true,
+        broadcastNewsUpdates: true
+    }
+},
+```
+　
 
 ### 11. 完成
 
