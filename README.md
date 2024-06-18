@@ -120,7 +120,7 @@ sudo apt-get install -y nodejs
 git clone https://github.com/MichMich/MagicMirror.git
 ```
 
-- MagicMirror<sup>2</sup>の設定と実行
+- MagicMirror<sup>2</sup>の設定と実行[^1]
 ```
 cd ~/MagicMirror
 sudo npm run install-mm
@@ -130,7 +130,7 @@ npm run start
 ```
 画面が表示されればインストール成功。 **CTRL + q** で終了。
 
-
+[^1]: npm の更新は画面に表示される内容に従ってください。
 
 
 
