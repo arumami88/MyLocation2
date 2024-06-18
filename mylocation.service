@@ -2,10 +2,10 @@
 Description=My Location
 
 [Service]
-User=imamura
+User=arumami88
 Environment="DISPLAY=:0.0"
-Environment="XAUTHORITY=/home/imamura/.Xauthority"
-ExecStart=/usr/bin/python /home/imamura/MyLocation/whereabout.py
+Environment="XAUTHORITY=/home/arumami88/.Xauthority"
+ExecStart=/usr/bin/python /home/arumami88/MyLocation/whereabout.py
 
 [Install]
 WantedBy=multi-user.target
