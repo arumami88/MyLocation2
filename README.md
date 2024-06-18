@@ -154,79 +154,79 @@ logLevel: []
 
 - 標準カレンダーモジュールを日本の休日に変更する。
 ```
-{
-module: "calendar",
-    header: "Holidays",
-    position: "top_left",
-    config: {
-        calendars: [
-            {
-                fetchInterval: 7 * 24 * 60 * 60 *1000,
-                symbol: "calendar-check",
-                url: "https://www.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics",
-                maximumEntries: 3,
-             }
-         ],
-         fade: false
-    }
-},
+	{
+		module: "calendar",
+    	header: "Holidays",
+    	position: "top_left",
+    	config: {
+        	calendars: [
+           		{
+                	fetchInterval: 7 * 24 * 60 * 60 *1000,
+                	symbol: "calendar-check",
+                	url: "https://www.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics",
+                	maximumEntries: 3,
+             	}
+         	],
+         	fade: false
+    	}
+	},
 ```
 
 - 誉め言葉モジュールの表示を無効化する。
 ```
-{
-    module: "compliments",
-    disabled: true,
-    position: "lower_third"
-},
+	{
+    	module: "compliments",
+    	disabled: true,
+    	position: "lower_third"
+	},
 ```
 
 - 天気予報モジュールは好きな地域に変更する。（例では金沢市） [^2]
 ```
-{
-    module: "weather",
-    position: "top_right",
-    config: {
-        weatherProvider: "openweathermap",
-        type: "current",
-        location: "Kanazawa",
-        locationID: "1860243",
-        apiKey: "XXXXXXXX"
-    }
-},
-{
-    module: "weather",
-    position: "top_right",
-    header: "Weather Forecast",
-    config: {
-        weatherProvider: "openweathermap",
-        type: "forecast",
-        location: "Kanazawa",
-        locationID: "1860243",
-        apiKey: "XXXXXXXX"
-    }
-},
+	{
+    	module: "weather",
+    	position: "top_right",
+    	config: {
+        	weatherProvider: "openweathermap",
+        	type: "current",
+        	location: "Kanazawa",
+        	locationID: "1860243",
+        	apiKey: "XXXXXXXX"
+    	}
+	},
+	{
+    	module: "weather",
+    	position: "top_right",
+    	header: "Weather Forecast",
+    	config: {
+        	weatherProvider: "openweathermap",
+        	type: "forecast",
+        	location: "Kanazawa",
+        	locationID: "1860243",
+        	apiKey: "XXXXXXXX"
+    	}
+	},
 ```
 [^2]: APIキーは取得したものを記述してください。
 
 - ニュースフィードモジュールはNHK主要ニュースに変更する。
 ```
-{
-    module: "newsfeed",
-    position: "top_bar",
-    config: {
-        feeds: [
-            {
-                title: "NHK News",
-                url: "https://www.nhk.or.jp/rss/news/cat0.xml"
-            }
-        ],
-        showSourceTitle: true,
-        showPublishDate: true,
-        broadcastNewsFeeds: true,
-        broadcastNewsUpdates: true
-    }
-},
+	{
+    	module: "newsfeed",
+    	position: "top_bar",
+    	config: {
+        	feeds: [
+            	{
+                	title: "NHK News",
+                	url: "https://www.nhk.or.jp/rss/news/cat0.xml"
+            	}
+        	],
+        	showSourceTitle: true,
+        	showPublishDate: true,
+        	broadcastNewsFeeds: true,
+        	broadcastNewsUpdates: true
+    	}
+	},
 ```
 ### 8. モジュールの追加
 
@@ -235,13 +235,44 @@ module: "calendar",
 cd ~/MagicMirror/modules/
 git clone https://github.com/KirAsh4/calendar_monthly.git
 ```
-`config/config.js` に下記を追加
+`config/config.js` に下記の記述を追加する。
 ```
-{
-    module: "calendar_monthly",
-    position: "top_left",
-},
+	{
+    	module: "calendar_monthly",
+    	position: "top_left",
+	},
 
+```
+
+- 月齢モジュールの追加
+```
+cd ~/MagicMirror/modules/
+git clone https://github.com/NolanKingdon/MMM-MoonPhase.git
+```
+`config/config.js` に下記の記述を追加する。
+```
+    {
+        module: "MMM-MoonPhase",
+        position: "top_right",
+        config: {
+            updateInterval: 43200000,
+            hemisphere: "N",
+            resolution: "detailed",
+            basicColor: "white",
+            title: true,
+            phase: true,
+			size: 100,
+			moonAlign: "center",
+			textAlign: "center",
+			alpha: 0.7,
+			riseAndSet: {
+				display: false,
+				lon: -80.0,
+				lat: 40.0,
+				gmtOffset: -3.0
+			}
+		}
+	},
 ```
 
 ### 11. 完成
