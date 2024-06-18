@@ -15,6 +15,8 @@
 ## 構成図
 
 <img src="config.png" width="400">
+所在表①をWebサーバとし，画面表示と同期してトップページ（所在表示）を更新する。
+所在表②では所在表①のトップページを定期的に参照して所在を表示する。
 
 ## 設定手順
 
@@ -28,7 +30,7 @@ cd ~
 git clone https://github.com/arumami88/MyLocation2.git
 ```
 
-## 3. Webサーバの設定
+## 3. Webサーバの設定（ユーザーが arumami88 の例）
 - Apache2 のインストール
 ```
 sudo apt-get install apache2
@@ -61,21 +63,36 @@ DocumentRoot /home/arumami88/www
 - `/etc/apache2/envvars` の編集
 ```
 ...
-export APACHE_RUN_USER=imamura
-export APACHE_RUN_GROUP=imamura
+export APACHE_RUN_USER=arumami88
+export APACHE_RUN_GROUP=arumami88
 ...
 
 ```
 
+- HTML ファイルの設置
+```
+cp -R ~/MyLocation2/www ~/
+
+```
+
+- 所在変更用スクリプト [whereabout2.py](whereabout2.py)を自分の仕様に合わせて編集する。
+※[arumami88] を自身のユーザー名に変更
 
 
-## 3. Raspberry Pi のOSインストールと初期設定
+- 所在変更用スクリプトの入れ替える。
+```
+cp ~/MyLocation2/whereabout2.py ~/MyLocation/whereabout.py
+```
+
+- 再起動して動作確認する。
+
+## 4. Raspberry Pi のOSインストールと初期設定
 
 - [公式ページ](https://www.raspberrypi.com/software/) から **Raspberry Pi Imager** をダウンロードしてPCにインストール。
 - Raspberry Pi Imagerを起動して，MicroSD カードにOSを書き込む。**Raspberry Pi OS (Legacy, 32-bit)** を選択。
 - Raspberry Pi に MicroSD を差し込み，起動して初期設定。**Wi-Fiの設定** をして **ソフトウェアの更新** をして再起動。
 
-## 4. 自動スリープを無効化・SSHの有効化
+## 5. 自動スリープを無効化・SSHの有効化
 
 - デスクトップ左上のラズパイのロゴをクリック
 - [設定]→[Raspberry Piの設定]→[ディスプレイ]タブ→[**画面のブランク**]をオフ
