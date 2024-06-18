@@ -1,8 +1,8 @@
 # ラズベリーパイを使ったデジタルサイネージ風の所在表
 
-リポジトリ [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表に追加する形の所在表です。
-ネットワークで連携して，サイネージ風に時刻や天気予報と同時に所在を表示します。
-※区別のために，ここではリポジトリ [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼びます。
+ [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表に追加するスタイリッシュな所在表です。
+ネットワークで連携して，[MagicMirror<sup>2</sup>](https://magicmirror.builders/) を利用して，サイネージ風に時刻や天気予報と同時に所在を表示します。
+※区別のために，ここでは [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼びます。
 
 ## 使用機器
 
