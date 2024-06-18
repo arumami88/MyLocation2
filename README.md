@@ -232,6 +232,7 @@ module: "calendar",
 
 - マンスリーカレンダーモジュールを追加する。
 ```
+cd ~/MagicMirror/modules/
 git clone https://github.com/KirAsh4/calendar_monthly.git
 ```
 `config/config.js` に下記を追加
