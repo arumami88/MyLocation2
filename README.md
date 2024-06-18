@@ -136,7 +136,7 @@ python whereabout.py
 | 種別 | 設定値 |
 | --- | ---|
 | 入力デバイス | /dev/input/event0 |
-| 所在表示用HTML | file:///home/arumami88/MyLocation/html/ |
+| 所在表示用HTML | file:///home/arumami88/MyLocation/html/[^3] |
 | 初期値 | 帰宅 (home.html) |
 | 画面オフ | ブランク (blank.html) |
 | 数字9キー | 食事 (meal.html) |
@@ -146,3 +146,5 @@ python whereabout.py
 | 数字3キー | 出張 (trip.html) |
 | 数字1キー | 休暇 (vacation.html) |
 | 数字0キー | 帰宅 (home.html) |
+
+[^3]:参照できるディレクトリを絶対PATHで記述する。
