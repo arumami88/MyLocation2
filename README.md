@@ -5,8 +5,6 @@
 また，ネットワークを通して [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表と連携します。
 ※区別のために，ここでは [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼ぶことにします。
 
-<img src="config.png" width="400">
-
 ## 使用機器
 
 | 種類 | 名称 |
@@ -14,35 +12,81 @@
 | マイコン | Raspberry Pi 3 Model B+ |
 | ディスプレイ | Dodomi 10.1インチモニタ（HDMI,1280×800)）|
 
+## 構成図
+
+<img src="config.png" width="400">
+
 ## 設定手順
 
 ## 1. 室内向け（制御用）所在表の作成
 
  [MyLocation](https://github.com/arumami88/MyLocation.git) の所在表①を作成する。
- 
- 
- 
 
-## 1. Raspberry Pi のOSインストールと初期設定
+## 2. 所在表①のRaspberry Pi で，リポジトリをクローン
+```
+cd ~
+git clone https://github.com/arumami88/MyLocation2.git
+```
+
+## 3. Webサーバの設定
+- Apache2 のインストール
+```
+sudo apt-get install apache2
+```
+インストールの確認
+```
+apache2 -v
+```
+
+- `/etc/apache2/site2-available/000-default.conf` の編集
+```
+...
+DocumentRoot /home/arumami88/www
+...
+
+```
+
+- `/etc/apache2/apache2.conf` の編集
+```
+...
+<Directory /home/arumami88/www/>
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+...
+
+```
+
+- `/etc/apache2/envvars` の編集
+```
+...
+export APACHE_RUN_USER=imamura
+export APACHE_RUN_GROUP=imamura
+...
+
+```
+
+
+
+## 3. Raspberry Pi のOSインストールと初期設定
 
 - [公式ページ](https://www.raspberrypi.com/software/) から **Raspberry Pi Imager** をダウンロードしてPCにインストール。
 - Raspberry Pi Imagerを起動して，MicroSD カードにOSを書き込む。**Raspberry Pi OS (Legacy, 32-bit)** を選択。
 - Raspberry Pi に MicroSD を差し込み，起動して初期設定。**Wi-Fiの設定** をして **ソフトウェアの更新** をして再起動。
 
-## 2. 自動スリープを無効化・SSHの有効化
+## 4. 自動スリープを無効化・SSHの有効化
 
 - デスクトップ左上のラズパイのロゴをクリック
 - [設定]→[Raspberry Piの設定]→[ディスプレイ]タブ→[**画面のブランク**]をオフ
-- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[**SSH**]をオン[^2]
-- Raspberry Pi のIPアドレスを調べておく。[^2]
+- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[**SSH**]をオン
+- Raspberry Pi のIPアドレスを調べておく。
 ```
 ifconfig | grep inet
 ```
 - 再起動して有効化する。
 
-[^2]:SSHによるログインが必要な場合のみ。
-
-## 3. このリポジトリをクローン
+## 5. このリポジトリをクローン
 ```
 cd ~
 git clone https://github.com/arumami88/MyLocation.git
