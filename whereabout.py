@@ -9,7 +9,7 @@ if __name__ == '__main__':
 	chrome_binary_location = '/usr/bin/chromium-browser'
 	chrome_webdriver_location = '/usr/bin/chromedriver'
 	input_device = '/dev/input/event0'
-	mylocation_path = 'file:///home/imamura/MyLocation/'
+	mylocation_path = 'file:///home/arumami88/MyLocation/html/'
 	default_webpage = mylocation_path + 'home.html'  # default
 	offmode_webpage = mylocation_path + 'blank.html'  # blank
 	key7_webpage = mylocation_path + 'room.html'  # in room
