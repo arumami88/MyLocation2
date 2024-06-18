@@ -3,7 +3,8 @@
 [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表に追加するスタイリッシュな所在表です。
 [MagicMirror<sup>2</sup>](https://magicmirror.builders/) によって，サイネージ風に時刻や天気予報と同時に所在を表示します。
 また，ネットワークを通して [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表と連携します。
-※区別のために，ここでは [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼ぶことにします。
+区別のために，ここでは [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼ぶことにします。
+所在表①が室内の操作者向けの表示として，所在表②が室外の来訪者向けを想定しています。
 
 <img src="screenshot.png" width="400">
 
@@ -24,7 +25,7 @@
 
 ## 所在表①の作成と設定
 
-## 1. 室内向け（制御用）所在表の作成
+## 1. 室内向け（操作用）所在表の作成
 
  [MyLocation](https://github.com/arumami88/MyLocation.git) の所在表①を作成する。
 
@@ -143,7 +144,16 @@ npm run start
 - アカウントメニューの My API keys で自分のAPI key を確認できる。
 - 表示したい地域の Location ID は [ここ](http://bulk.openweathermap.org/sample/city.list.json.gz) で調べられる。例えば石川県金沢市の Location ID は 1860243 になる。
 
-## 7. MagicMirror<sup>2</sup>の設定 [~/MagicMirror/config/config.js](config.js)
+## 7. MagicMirror<sup>2</sup>の設定
+
+`~/MagicMirror/config/config.js` を編集する。
+
+設定ファイル [cofig.js](config.js) の例を編集して，コピーしてもよい。
+```
+cd ~/MyLocation2/config.js ~/MagicMirror/config/config.js
+```
+
+### カスタマイズ内容
 
 - 日本語の設定とログの無効化する。
 ```
