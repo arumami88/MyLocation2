@@ -17,6 +17,8 @@
 
 [^1]:単純に有線接続や Bluetooth 接続のキーボードを用いてもよい。
 
+## 設定手順
+
 ## 1. Raspberry Pi のOSインストールと初期設定
 
 - [公式ページ](https://www.raspberrypi.com/software/) から **Raspberry Pi Imager** をダウンロードしてPCにインストール。
@@ -202,3 +204,10 @@ XAUTHORITY=/home/arumami88/.Xauthority
 0 5     * * *    root    /home/imamura/MyLocation/saveroff.sh
 ```
 ※例は夜23時にスクリーンセーバーを有効化し，朝5時に無効化する。
+
+### 完成
+
+## コメント
+
+
+## 参考
