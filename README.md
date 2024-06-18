@@ -228,7 +228,20 @@ module: "calendar",
     }
 },
 ```
-　
+### 8. モジュールの追加
+
+- マンスリーカレンダーモジュールを追加する。
+```
+git clone https://github.com/KirAsh4/calendar_monthly.git
+```
+`config/config.js` に下記を追加
+```
+{
+    module: "calendar_monthly",
+    position: "top_left",
+},
+
+```
 
 ### 11. 完成
 
