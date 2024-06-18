@@ -20,6 +20,8 @@
 
 ## 設定手順
 
+## 所在表①の作成と設定
+
 ## 1. 室内向け（制御用）所在表の作成
 
  [MyLocation](https://github.com/arumami88/MyLocation.git) の所在表①を作成する。
@@ -85,6 +87,8 @@ cp ~/MyLocation2/whereabout2.py ~/MyLocation/whereabout.py
 ```
 
 - 再起動して動作確認する。
+
+## 所在表②の作成
 
 ## 4. Raspberry Pi のOSインストールと初期設定
 
