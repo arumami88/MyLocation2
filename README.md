@@ -5,6 +5,8 @@
 また，ネットワークを通して [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表と連携します。
 ※区別のために，ここでは [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼ぶことにします。
 
+<img src="screenshot.png" width="400">
+
 ## 使用機器
 
 | 種類 | 名称 |
@@ -128,7 +130,7 @@ sudo npm install -g npm@10.8.1
 cp config/config.js.sample config/config.js
 npm run start
 ```
-画面が表示されればインストール成功。 **CTRL + q** で終了。
+画面が表示されればインストール成功。一旦 **CTRL + q** で終了。
 
 [^1]: npm の更新は画面に表示される内容に従ってください。
 
