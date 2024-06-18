@@ -141,6 +141,7 @@ python whereabout.py
 | 画面オフ | ブランク (blank.html) |
 | 数字9キー | 食事 (meal.html) |
 | 数字7キー | 在室 (room.html) |
+| 数字6キー | 会議 (meeting.html) |
 | 数字4キー | 一時離席 (afk.html) |
 | 数字3キー | 出張 (trip.html) |
 | 数字1キー | 休暇 (vacation.html) |
