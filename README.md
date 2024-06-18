@@ -134,14 +134,80 @@ npm run start
 
 [^1]: npm の更新は画面に表示される内容に従ってください。
 
+## 6. OpenWeatherMapから気象情報を取得
 
+- [OpenWeatherMap](https://openweathermap.org/) にアクセスする。
+- ユーザ名，メールアドレス，パスワードを入力して，アカウント作成する。
+- 初回は地域とAPIの使用目的が聞かれるので回答する。
+- 本人確認メールが届くので，承認する。
+- アカウントメニューの My API keys で自分のAPI key を確認できる。
+- 表示したい地域の Location ID は [ここ](http://bulk.openweathermap.org/sample/city.list.json.gz) で調べられる。例えば石川県金沢市の Location ID は 1860243 になる。
 
+## 7. MagicMirror<sup>2</sup>の設定 [~/MagicMirror/config/config.js](config.js)
 
+- 日本語の設定とログの無効化
+```
+language: "ja"
+locale: "ja-JP.UTF-8"
+logLevel: []
+```
 
+- 標準カレンダーモジュールを日本の休日に変更
+```
+{
+module: "calendar",
+    header: "Holidays",
+    position: "top_left",
+    config: {
+        calendars: [
+            {
+                fetchInterval: 7 * 24 * 60 * 60 *1000,
+                symbol: "calendar-check",
+                url: "https://www.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics",
+                maximumEntries: 3,
+             }
+         ],
+         fade: false
+    }
+},
+```
 
+- 誉め言葉モジュールの表示を無効化
+```
+{
+    module: "compliments",
+    disabled: true,
+    position: "lower_third"
+},
+```
 
-
-
+天気予報モジュールは金沢市に変更 [^2]
+```
+{
+    module: "weather",
+    position: "top_right",
+    config: {
+        weatherProvider: "openweathermap",
+        type: "current",
+        location: "Kanazawa",
+        locationID: "1860243",
+        apiKey: "XXXXXXXX"
+    }
+},
+{
+    module: "weather",
+    position: "top_right",
+    header: "Weather Forecast",
+    config: {
+        weatherProvider: "openweathermap",
+        type: "forecast",
+        location: "Kanazawa",
+        locationID: "1860243",
+        apiKey: "XXXXXXXX"
+    }
+},
+```
+[^2]: APIキーは取得したものを記述してください。
 
 ### 11. 完成
 
