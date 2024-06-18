@@ -241,7 +241,6 @@ git clone https://github.com/KirAsh4/calendar_monthly.git
     	module: "calendar_monthly",
     	position: "top_left",
 	},
-
 ```
 
 - 月齢モジュールの追加
@@ -275,16 +274,60 @@ git clone https://github.com/NolanKingdon/MMM-MoonPhase.git
 	},
 ```
 
+### 9. 所在表示の追加
+
+- Webページ表示モジュールの追加[^3]
+```
+cd ~/MagicMirror/modules/
+git clone https://github.com/AgP42/MMM-SmartWebDisplay.git
+```
+`config/config.js` に下記の記述を追加する。
+```
+	{
+		module: "MMM-SmartWebDisplay",
+		position: "middle_center",
+		config: {
+			logDebag: false,
+			height: "500px",
+			width: "500px",
+			updateInterval: 0.5,
+			displayLastUpdate: false,
+			url: [http://192.168.254.1/],
+			scrolling: "no",
+		},
+	},
+```
+[^3]: URLは所在表①のIPアドレスを指定する。
+
+- テキスト表示モジュールの追加
+```
+cd ~/MagicMirror/modules/
+git clone https://github.com/SaltyRiver/MMM-SimpleText.git
+```
+`config/config.js` に下記の記述を追加する。
+```
+	{
+		module: "MMM-SimpleText",
+		position: "top_center",
+		config: {
+			text: {
+			  'value': 'WHEREABOUTS'
+			},
+		},
+	},
+```
+
+### 10. 自動起動の設定
+
 ### 11. 完成
 
-- HDMIで作業をしていたら3.5インチモニタに表示を切り替える。
-- 電源を切り，不要なマウス・キーボードを外す。（入力デバイスが変更されないか注意）
+- 電源を切り，不要なマウス・キーボードを外す。
 - 適切な場所に設置して起動し，動作確認して完了。
 
 ## コメント
 
-- 設定後のネットワーク接続は不要となります。
-- 手持ちの関係で使用機器を選びましたが，電子ペーパーや Raspberry Pi Zero などを使ってもいいですね。
+- MMM-SmartWebDisplay モジュールは一定時間（設定例では30秒）毎にページが更新されるはずですが、数時間経っても更新されない現象頻繁に起こります。
+現在、1日1回定期的に再起動して対応しています。
 
 ## 参考
 
