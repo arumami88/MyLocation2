@@ -12,15 +12,15 @@ if __name__ == '__main__':
 	mylocation_path = 'file:///home/arumami88/MyLocation/html/'
 	default_webpage = mylocation_path + 'home.html'  # default
 	offmode_webpage = mylocation_path + 'blank.html'  # blank
+	key9_webpage = mylocation_path + 'meal.html'  # meal
+	key8_webpage = mylocation_path + 'blank.html'
 	key7_webpage = mylocation_path + 'room.html'  # in room
-	key8_webpage = mylocation_path + 'lecture.html'  # lecture
-	key9_webpage = mylocation_path + 'meeting.html'  # meeting
-	key4_webpage = mylocation_path + 'labo.html'  # laboratory
-	key5_webpage = mylocation_path + 'semi.html'  # seminar
-	key6_webpage = mylocation_path + 'meal.html'  # meal
-	key1_webpage = mylocation_path + 'univ.html'  # in univ.
-	key2_webpage = mylocation_path + 'trip.html'  # business trip
-	key3_webpage = mylocation_path + 'vacation.html'  # vacation
+	key6_webpage = mylocation_path + 'meeting.html'  # meeting
+	key5_webpage = mylocation_path + 'blank.html'
+	key4_webpage = mylocation_path + 'afk.html'  # afk
+	key3_webpage = mylocation_path + 'trip.html'  # business trip
+	key2_webpage = mylocation_path + 'blank.html'
+	key1_webpage = mylocation_path + 'vacation.html'  # vacation
 	key0_webpage = mylocation_path + 'home.html'  # home
 
 	# Chromium setting for kiosk mode & automation
