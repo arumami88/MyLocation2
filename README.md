@@ -214,6 +214,7 @@ XAUTHORITY=/home/arumami88/.Xauthority
 ## コメント
 
 - 設定後のネットワーク接続は不要となります。
+- 手持ちの関係で使用機器を選びましたが，電子ペーパーや Raspberry Pi Zero などを使ってもいいですね。
 
 ## 参考
 
