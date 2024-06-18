@@ -140,7 +140,6 @@ python whereabout.py
 | 入力デバイス | /dev/input/event0 |
 | 所在表示用HTML | file:///home/arumami88/MyLocation/html/[^3] |
 | 初期値 | 帰宅 (home.html) |
-| 画面オフ | ブランク (blank.html) |
 | 数字9キー | 食事 (meal.html) |
 | 数字8キー | ブランク (blank.html) |
 | 数字7キー | 在室 (room.html) |
@@ -165,4 +164,41 @@ sudo apt-get install unclutter
 
 ## 9. 自動起動の設定
 
-- 起動スクリプトのサンプル [mylocation.service](mylocation.service)の arumami88 の部分３か所を自身のユーザー名に修正する。
+- 起動スクリプトのサンプル [mylocation.service](mylocation.service)の修正する。
+※[arumami88] を自身のユーザー名に変更
+
+- /etc/systemd/system にコピー
+```
+sudo cp ~/MyLocation/mylocation.service /etc/systemd/system/
+```
+
+- 動作テスト
+```
+sudo systemctl start mylocation.service
+```
+
+- 自動起動の設定
+```
+sudo systemctl enable mylocation.service
+```
+
+### 10. 夜間ブランクスクリーンの設定
+
+- スクリーンセーバーの有効化／無効化用スクリプト[saveron.sh](saveron.sh)，[saveroff.sh](saveroff.sh)に実行属性を付与する。
+```
+chmod 755 saveron.sh saveroff.sh
+```
+
+- 定期実行するように `/etc/crontab` を下記のように編集する。
+
+環境変数の設定を上部に追加
+```
+DISPLAY=:0.0
+XAUTHORITY=/home/arumami88/.Xauthority
+```
+定時動作の記述
+```
+0 23    * * *    root    /home/imamura/MyLocation/saveron.sh
+0 5     * * *    root    /home/imamura/MyLocation/saveroff.sh
+```
+※例は夜23時にスクリーンセーバーを有効化し，朝5時に無効化する。
