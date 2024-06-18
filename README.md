@@ -5,6 +5,8 @@
 また，ネットワークを通して [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表と連携します。
 ※区別のために，ここでは [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼ぶことにします。
 
+<img src="config.png" width="400">
+
 ## 使用機器
 
 | 種類 | 名称 |
@@ -13,6 +15,13 @@
 | ディスプレイ | Dodomi 10.1インチモニタ（HDMI,1280×800)）|
 
 ## 設定手順
+
+## 1. 室内向け（制御用）所在表の作成
+
+ [MyLocation](https://github.com/arumami88/MyLocation.git) の所在表①を作成する。
+ 
+ 
+ 
 
 ## 1. Raspberry Pi のOSインストールと初期設定
 
