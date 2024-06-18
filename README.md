@@ -1,6 +1,6 @@
 # ラズベリーパイを使ったデジタル所在表
 
-<img src="sample.jpg" width="640">
+<img src="sample.jpg" width="400">
 
 ## 使用機器
 
