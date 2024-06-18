@@ -1,6 +1,6 @@
 # ラズベリーパイを使ったデジタルサイネージ所在表
 
- [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表に追加するスタイリッシュな所在表です。
+[MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表に追加するスタイリッシュな所在表です。
 [MagicMirror<sup>2</sup>](https://magicmirror.builders/) によって，サイネージ風に時刻や天気予報と同時に所在を表示します。
 また，ネットワークを通して [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したデジタル所在表と連携します。
 ※区別のために，ここでは [MyLocation](https://github.com/arumami88/MyLocation.git) で作成したものを **「所在表①」** ，今回追加するものを **「所在表②」** と呼ぶことにします。
@@ -56,9 +56,9 @@ DocumentRoot /home/arumami88/www
 ```
 ...
 <Directory /home/arumami88/www/>
-    Options Indexes FollowSymLinks
-    AllowOverride None
-    Require all granted
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Require all granted
 </Directory>
 ...
 
@@ -154,30 +154,30 @@ logLevel: []
 
 - 標準カレンダーモジュールを日本の休日に変更する。
 ```
-	{
+		{
 		module: "calendar",
-    	header: "Holidays",
-    	position: "top_left",
-    	config: {
-        	calendars: [
-           		{
-                	fetchInterval: 7 * 24 * 60 * 60 *1000,
-                	symbol: "calendar-check",
-                	url: "https://www.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics",
-                	maximumEntries: 3,
-             	}
-         	],
-         	fade: false
-    	}
+		header: "Holidays",
+		position: "top_left",
+		config: {
+	    	calendars: [
+	       		{
+	            	fetchInterval: 7 * 24 * 60 * 60 *1000,
+	            	symbol: "calendar-check",
+	            	url: "https://www.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics",
+	            	maximumEntries: 3,
+	         	}
+	     	],
+	     	fade: false
+		}
 	},
 ```
 
 - 誉め言葉モジュールの表示を無効化する。
 ```
 	{
-    	module: "compliments",
-    	disabled: true,
-    	position: "lower_third"
+		module: "compliments",
+		disabled: true,
+		position: "lower_third"
 	},
 ```
 
