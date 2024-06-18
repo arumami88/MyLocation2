@@ -133,6 +133,8 @@ python whereabout.py
 
 #### サンプルコードの設定内容
 
+- サンプルコードの下記の表のように設定されているので，適時変更する。
+
 | 種別 | 設定値 |
 | --- | ---|
 | 入力デバイス | /dev/input/event0 |
@@ -140,11 +142,27 @@ python whereabout.py
 | 初期値 | 帰宅 (home.html) |
 | 画面オフ | ブランク (blank.html) |
 | 数字9キー | 食事 (meal.html) |
+| 数字8キー | ブランク (blank.html) |
 | 数字7キー | 在室 (room.html) |
 | 数字6キー | 会議 (meeting.html) |
+| 数字5キー | ブランク (blank.html) |
 | 数字4キー | 一時離席 (afk.html) |
 | 数字3キー | 出張 (trip.html) |
+| 数字2キー | ブランク (blank.html) |
 | 数字1キー | 休暇 (vacation.html) |
 | 数字0キー | 帰宅 (home.html) |
+| ENTERキー | オフモード (blank.html) |
 
 [^3]:参照できるディレクトリを絶対PATHで記述する。
+
+## 8. マウスカーソルの消去
+
+- Unclutter をインストールする。
+```
+sudo apt-get install unclutter
+```
+再起動後に有効となる。詳細な設定は `/etc/default/unclutter` を修正する。
+
+## 9. 自動起動の設定
+
+- 起動スクリプトのサンプル [mylocation.service](mylocation.service)の arumami88 の部分３か所を自身のユーザー名に修正する。
