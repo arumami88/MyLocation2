@@ -73,7 +73,7 @@ ls /dev/input
 ```
 sudo pip3 install evdev
 ```
-#### 動作確認用のサンプルコード（接続デバイスが **/dev/input/event0** の例）[buttontest.py](buttontest.py)
+#### 動作確認用のテストコード（接続デバイスが **/dev/input/event0** の例）[buttontest.py](buttontest.py)
 ```
 import evdev
 
@@ -106,7 +106,7 @@ which chromedriver
 sudo apt-get dist-upgrade chromium-browser
 ```
 
-#### 動作確認用のサンプルコード（Kioskモードでの google ページの表示）[chrometest.py](chrometest.py)
+#### 動作確認用のテストコード（Kioskモードでの google ページの表示）[chrometest.py](chrometest.py)
 ```
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -126,11 +126,11 @@ driver.get('https://google.com')
 cd ~/MyLocation
 python whereabout.py
 ```
-- サンプルコード [whereabout.py](whereabout.py) を実行して数字キーの押下で表示変更されるか確認する。
+- 所在変更用サンプルコード [whereabout.py](whereabout.py) を実行して数字キーの押下で表示変更されるか確認する。
 
 #### サンプルコードの設定内容
 
-- サンプルコードの下記の表のように設定されているので，適時変更する。
+- サンプルコードの下記の表のように設定されているので，好みに合わせて変更する。
 
 | 種別 | 設定値 |
 | --- | ---|
@@ -169,7 +169,7 @@ sudo apt-get install unclutter
 sudo cp ~/MyLocation/mylocation.service /etc/systemd/system/
 ```
 
-- 動作テスト
+- 起動テスト
 ```
 sudo systemctl start mylocation.service
 ```
@@ -210,3 +210,5 @@ XAUTHORITY=/home/arumami88/.Xauthority
 
 
 ## 参考
+
+- 所在表示用の画像には [ICOON MONO](https://icooon-mono.com/) さんのアイコンを使用させていただいています。
