@@ -1,6 +1,6 @@
 # ラズベリーパイを使ったデジタル所在表
 
-
+![Screenshot](/assers/sample.jpg)
 
 ## 使用機器
 
