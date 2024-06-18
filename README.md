@@ -107,11 +107,38 @@ ifconfig | grep inet
 ```
 - 再起動して有効化する。
 
-## 5. このリポジトリをクローン
+## 5. Magic Mirror<sup>2</sup> のインストールと初期設定
+
+- Node.js のインストール
 ```
-cd ~
-git clone https://github.com/arumami88/MyLocation.git
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+sudo apt-get install -y nodejs
 ```
+
+- MagicMirror<sup>2</sup>のインストール
+```
+git clone https://github.com/MichMich/MagicMirror.git
+```
+
+- MagicMirror<sup>2</sup>の設定と実行
+```
+cd ~/MagicMirror
+sudo npm run install-mm
+sudo npm install -g npm@10.8.1
+cp config/config.js.sample config/config.js
+npm run start
+```
+画面が表示されればインストール成功。 **CTRL + q** で終了。
+
+
+
+
+
+
+
+
+
+
 
 ## 4. Kuman 3.5インチLCDの設定
 
