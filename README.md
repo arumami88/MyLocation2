@@ -146,9 +146,9 @@ npm run start
 
 ## 7. MagicMirror<sup>2</sup>の設定
 
-`~/MagicMirror/config/config.js` を編集する。
+- `~/MagicMirror/config/config.js` を編集する。
 
-設定ファイル [cofig.js](config.js) の例を編集して，コピーしてもよい。
+設定ファイル [cofig.js](config.js) 例を下記のカスタマイズ内容を参考に編集して，コピーしてもよい。
 ```
 cd ~/MyLocation2/config.js ~/MagicMirror/config/config.js
 ```
