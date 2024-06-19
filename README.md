@@ -28,24 +28,25 @@
 ## 1. 室内向け（操作用）所在表の作成
 
  [MyLocation](https://github.com/arumami88/MyLocation.git) の所在表①を作成する。
+ ※Webサーバにするため要ネットワーク接続
 
-## 2. 所在表①のRaspberry Pi で，リポジトリをクローン
+## 2. 所在表①の Raspberry Pi で，リポジトリのクローン
 ```
 cd ~
 git clone https://github.com/arumami88/MyLocation2.git
 ```
 
-## 3. Webサーバの設定（ユーザーが arumami88 の例）
-- Apache2 のインストール
+## 3. Webサーバを設定（ユーザーが arumami88 の例）
+- Apache2 をインストールする。
 ```
 sudo apt-get install apache2
 ```
-インストールの確認
+インストールできたか確認する。
 ```
 apache2 -v
 ```
 
-- `/etc/apache2/site2-available/000-default.conf` の編集
+- `/etc/apache2/site2-available/000-default.conf` を編集する。
 ```
 ...
 DocumentRoot /home/arumami88/www
@@ -53,7 +54,7 @@ DocumentRoot /home/arumami88/www
 
 ```
 
-- `/etc/apache2/apache2.conf` の編集
+- `/etc/apache2/apache2.conf` を編集する。
 ```
 ...
 <Directory /home/arumami88/www/>
@@ -65,7 +66,7 @@ DocumentRoot /home/arumami88/www
 
 ```
 
-- `/etc/apache2/envvars` の編集
+- `/etc/apache2/envvars` を編集する。
 ```
 ...
 export APACHE_RUN_USER=arumami88
@@ -74,7 +75,7 @@ export APACHE_RUN_GROUP=arumami88
 
 ```
 
-- HTML ファイルの設置
+- 所在表②用の所在表示 HTML ファイルを設置する。
 ```
 cp -R ~/MyLocation2/www ~/
 
@@ -84,7 +85,7 @@ cp -R ~/MyLocation2/www ~/
 ※[arumami88] を自身のユーザー名に変更
 
 
-- 所在変更用スクリプトの入れ替える。
+- 所在変更用スクリプトを入れ替える。
 ```
 cp ~/MyLocation2/whereabout2.py ~/MyLocation/whereabout.py
 ```
@@ -95,16 +96,16 @@ cp ~/MyLocation2/whereabout2.py ~/MyLocation/whereabout.py
 
 ## 4. Raspberry Pi のOSインストールと初期設定
 
-- [公式ページ](https://www.raspberrypi.com/software/) から **Raspberry Pi Imager** をダウンロードしてPCにインストール。
-- Raspberry Pi Imagerを起動して，MicroSD カードにOSを書き込む。**Raspberry Pi OS (Legacy, 32-bit)** を選択。
-- Raspberry Pi に MicroSD を差し込み，起動して初期設定。**Wi-Fiの設定** をして **ソフトウェアの更新** をして再起動。
+- [公式ページ](https://www.raspberrypi.com/software/) から Raspberry Pi Imager をダウンロードしてPCにインストールする。
+- Raspberry Pi Imagerを起動して，MicroSD カードにOSを書き込む。Raspberry Pi OS (Legacy, 32-bit)を選択する。
+- Raspberry Pi に MicroSD を差し込み，起動して初期設定する。Wi-Fiの設定とソフトウェアの更新をして再起動する。
 
 ## 5. 自動スリープを無効化・SSHの有効化
 
-- デスクトップ左上のラズパイのロゴをクリック
-- [設定]→[Raspberry Piの設定]→[ディスプレイ]タブ→[**画面のブランク**]をオフ
-- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[**SSH**]をオン
-- Raspberry Pi のIPアドレスを調べておく。
+- デスクトップ左上のラズパイのロゴをクリックする。
+- [設定]→[Raspberry Piの設定]→[ディスプレイ]タブ→[画面のブランク]をオフにする。
+- [設定]→[Raspberry Piの設定]→[インターフェース]タブ→[SSH]をオンにする。
+- 今後のために，Raspberry Pi のIPアドレスを確認しておく。
 ```
 ifconfig | grep inet
 ```
@@ -131,9 +132,9 @@ sudo npm install -g npm@10.8.1
 cp config/config.js.sample config/config.js
 npm run start
 ```
-画面が表示されればインストール成功。一旦 **CTRL + q** で終了。
+画面が表示されればインストール成功。一旦 **CTRL + q** で終了する。
 
-[^1]: npm の更新は画面に表示される内容に従ってください。
+[^1]: npm の更新は画面に表示される内容に従う。
 
 ## 6. OpenWeatherMapから気象情報を取得
 
@@ -253,7 +254,7 @@ git clone https://github.com/KirAsh4/calendar_monthly.git
 	},
 ```
 
-- 月齢モジュールの追加
+- 月齢モジュールを追加する。
 ```
 cd ~/MagicMirror/modules/
 git clone https://github.com/NolanKingdon/MMM-MoonPhase.git
@@ -286,7 +287,7 @@ git clone https://github.com/NolanKingdon/MMM-MoonPhase.git
 
 ### 9. 所在表示の追加
 
-- Webページ表示モジュールの追加[^3]
+- Webページ表示モジュールを追加する。[^3]
 ```
 cd ~/MagicMirror/modules/
 git clone https://github.com/AgP42/MMM-SmartWebDisplay.git
@@ -309,7 +310,7 @@ git clone https://github.com/AgP42/MMM-SmartWebDisplay.git
 ```
 [^3]: URLは所在表①のIPアドレスを指定する。
 
-- テキスト表示モジュールの追加
+- テキスト表示モジュールを追加する。
 ```
 cd ~/MagicMirror/modules/
 git clone https://github.com/SaltyRiver/MMM-SimpleText.git
@@ -329,6 +330,27 @@ git clone https://github.com/SaltyRiver/MMM-SimpleText.git
 
 ### 10. 自動起動の設定
 
+- pm2 をインストールする。
+```
+sudo npm install -g pm2
+```
+
+- 自動起動するように設定する。
+```
+pm2 startup
+cp ~/MagicMirror/installers/mm.sh ~/
+pm2 start mm.sh
+```
+※ 自動起動するようになるので，CTRL + q で終了しつつ素早く入力する。
+※ 下記の[arumami88] の部分は自身のユーザー名に変更する。
+```
+pm2 save
+pm2 delete 0
+pm2 startup
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup system -U arumami88 –h /home/arumami88
+sudo systemctl enable pm2-arumami88.service
+```
+
 ### 11. 完成
 
 - 電源を切り，不要なマウス・キーボードを外す。
@@ -343,4 +365,4 @@ git clone https://github.com/SaltyRiver/MMM-SimpleText.git
 
 - 所在表示用の画像には [ICOON MONO](https://icooon-mono.com/) さんのアイコンを使用させていただきました。
 
-- 作成には [uepon日々の備忘録 【RaspberryPi】WEBサイネージ化してみる（縦向きモニタ編）](https://uepon.hatenadiary.com/entry/2021/03/11/004116) などを参考にさせていただきました。
+- 作成には [マジックミラーが無くても情報表示にMagicMirror²を使う](https://raspida.com/magicmirror-for-info-board/) などを参考にさせていただきました。
